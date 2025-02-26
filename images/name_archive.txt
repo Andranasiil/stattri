@@ -1,0 +1,2 @@
+New		Source				Newname		Comment
+banner.jpg	Square Logo ol empty.png	banner.jpg	transparent?
