@@ -1,2 +1,5 @@
-New		Source				Newname		Comment
-banner.jpg	Square Logo ol empty.png	banner.jpg	transparent?
+Tradition	Source					Newname		Comment
+banner.jpg	GC Logo.png				banner.jpg	transparent?
+pic02.jpg	20230521_133634.jpg			pictree02.jpg
+pic01.jpg	Square Logo ol empty.png		pic01logl.jpg	transparent?
+pic03.jpg 	RF Logo.png				pic03tmp.jpg
