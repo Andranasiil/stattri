@@ -1,178 +1,220 @@
-<!DOCTYPE HTML>
-<!--
-	Spectral by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>Statistical Triage</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="landing is-preload">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Statistical Triage</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@500;600;700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --canyon: #9C4A2E;
+    --canyon-deep: #7A3A24;
+    --sky: #4C6E8C;
+    --moss: #4C6B4A;
+    --moss-deep: #3A5238;
+    --stone: #F3EEE3;
+    --stone-dim: #E8E1D2;
+    --ink: #23241F;
+    --ink-soft: #55564D;
+    --tri-red:#C1443A; --tri-yellow:#D9A441; --tri-green:#4C6B4A;
+    --bg: var(--stone);
+    --fg: var(--ink);
+    --card-bg: #FFFFFF;
+    --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+    --sans: "Public Sans", -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#1B1D18; --fg:#EDE9DD; --card-bg:#25281F; --stone-dim:#2C2E26; --ink-soft:#BEBAA9;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#1B1D18; --fg:#EDE9DD; --card-bg:#25281F; --stone-dim:#2C2E26; --ink-soft:#BEBAA9;
+  }
+  html{ scroll-padding-top: env(safe-area-inset-top, 0px); scroll-behavior:smooth; }
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  body{ background:var(--bg); color:var(--fg); font-family:var(--sans); line-height:1.55; }
+  img{ max-width:100%; display:block; }
+  .wrap{ max-width:1080px; margin:0 auto; padding:0 28px; }
+  a{ color:inherit; }
 
-		<!-- Page Wrapper -->
-			<div id="page-wrapper">
+  header.nav{
+    position:sticky; top:0; z-index:20;
+    background:var(--bg); border-bottom:1px solid var(--stone-dim);
+    padding-top: env(safe-area-inset-top,0px);
+  }
+  .nav-row{ display:flex; align-items:center; justify-content:space-between; padding:14px 28px; max-width:1080px; margin:0 auto; }
+  .brand{ display:flex; align-items:center; gap:10px; font-family:var(--serif); font-weight:600; font-size:1.25rem; letter-spacing:.01em; }
+  .brand svg{ width:30px; height:30px; flex-shrink:0; }
+  .nav-links{ display:flex; gap:28px; font-size:.95rem; }
+  .nav-links a{ text-decoration:none; }
+  .nav-cta{ background:var(--canyon); color:#fff; padding:9px 18px; border-radius:3px; text-decoration:none; font-size:.9rem; font-weight:500; }
+  .nav-cta:hover{ background:var(--canyon-deep); }
 
-				<!-- Header -->
-					<header id="header" class="alt">
-						<h1><a href="./">Statistical Triage</a></h1>
-						<nav id="nav">
-							<ul>
-								<li class="special">
-									<a href="#menu" class="menuToggle"><span>Menu</span></a>
-									<div id="menu">
-										<ul>
-											<li><a href="./">Home</a></li>
-											<!--<li><a href="generic.html">Generic</a></li> -->
-											<!--<li><a href="elements.html">Elements</a></li> -->
-											<!--<li><a href="#">Sign Up</a></li> -->
-											<li><a href="https://forms.gle/hfvrDMfnWsVQrLZs5">Contact Form</a></li>
-											<!--<li><a href="#">Log In</a></li> -->
-										</ul>
-									</div>
-								</li>
-							</ul>
-						</nav>
-					</header>
+  .hero{
+    position:relative; min-height:78vh; display:flex; align-items:flex-end;
+    background-image: linear-gradient(180deg, rgba(20,24,18,.15) 0%, rgba(20,24,18,.55) 100%), url('images/banner.jpg');
+    background-size:cover; background-position:center;
+  }
+  .hero-inner{ padding:60px 28px 64px; max-width:1080px; margin:0 auto; width:100%; }
+  .hero h1{
+    font-family:var(--serif); color:#fff; font-weight:600;
+    font-size:clamp(2.1rem, 4.4vw, 3.4rem); line-height:1.12; max-width:14ch;
+  }
+  .hero p{ color:#F1EEE4; font-size:1.15rem; max-width:52ch; margin-top:18px; }
+  .hero .cta-row{ margin-top:30px; display:flex; gap:16px; flex-wrap:wrap; }
+  .btn-primary{ background:#fff; color:var(--ink); padding:13px 26px; border-radius:3px; text-decoration:none; font-weight:600; }
+  .btn-ghost{ border:1px solid rgba(255,255,255,.65); color:#fff; padding:13px 26px; border-radius:3px; text-decoration:none; font-weight:500; }
 
-				<!-- Banner -->
-					<section id="banner">
-						<div class="inner">
-							<h2>Statistical Triage</h2>
-							<p>
-								<span style="color: red;">Prioritize.</span>
-								<span style="color: yellow;">Decide.</span>
-    								<span style="color: green;">Succeed.</span><br />
-							<br />
-							<!--crafted by <a href="http://html5up.net">HTML5 UP</a>.--> </p>
-							 <ul class="actions special">
-								<li><a href="https://forms.gle/hfvrDMfnWsVQrLZs5" class="button primary">Inquire</a></li>
-							</ul>
-						</div>
-						<a href="#one" class="more scrolly">Learn More</a>
-					</section>
+  section{ padding:84px 0; }
+  .eyebrow-free h2{ font-family:var(--serif); font-weight:600; font-size:clamp(1.6rem,3vw,2.2rem); max-width:20ch; }
+  .lede{ color:var(--ink-soft); max-width:62ch; margin-top:14px; font-size:1.05rem; }
 
-				<!-- One -->
-					<section id="one" class="wrapper style1 special">
-						<div class="inner">
-							<header class="major">
-								<h2>Statistical Consulting at its finest.<br />
-								</h2>
-								<p>A problem identified is a problem soon to be solved. <br />
-								Harness Evidence Based Methods to aid you in your search for confident decisions, and enjoy the success that you will earn.</p>
-							</header>
-							<ul class="icons major">
-								<li><span class="icon fa-gem major style1"><span class="label">Lorem</span></span></li>
-								<li><span class="icon fa-heart major style2"><span class="label">Ipsum</span></span></li>
-								<li><span class="icon solid fa-code major style3"><span class="label">Dolor</span></span></li>
-							</ul>
-						</div>
-					</section>
+  .services{ background:var(--stone-dim); }
+  .service-grid{ display:grid; grid-template-columns:1fr; gap:2px; margin-top:48px; background:var(--bg); border:1px solid var(--bg); }
+  @media(min-width:760px){ .service-grid{ grid-template-columns:repeat(3,1fr); } }
+  .service{ background:var(--card-bg); padding:34px 30px; }
+  .service h3{ font-family:var(--serif); font-size:1.25rem; font-weight:600; margin-bottom:12px; }
+  .service p{ color:var(--ink-soft); font-size:.98rem; }
 
-				<!-- Two -->
-					<section id="two" class="wrapper alt style2">
-						<section class="spotlight">
-							<div class="image"><img src="images/pic01logl.jpg" alt="" /></div><div class="content">
-								<h2>Clinical Research: <br />
-								Statistical Plan and Analysis </h2>
-								<p>Development of and analysis of clinical reasearch.<br /> From Pre-Clinical to PMA.</p>
-							</div>
-						</section>
-						<section class="spotlight">
-							<div class="image"><img src="images/pictree02.jpg" alt="" /></div><div class="content">
-								<h2>Tutoring and <br />
-								Training</h2>
-								<p>Tutoring in statistical methodology and Training in statistical software. (SAS, SQL, Excel, R, Python)</p>
-							</div>
-						</section>
-						<section class="spotlight">
-							<div class="image"><img src="images/pic03tmp.jpg" alt="" /></div><div class="content">
-								<h2>Manuscript Preparation:<br />
-								</h2>
-								<p>Research design, analysis, and writing.</p>
-							</div>
-						</section>
-					</section>
+  .feature{ display:grid; grid-template-columns:1fr; gap:40px; align-items:center; }
+  @media(min-width:760px){ .feature{ grid-template-columns:1fr 1fr; } }
+  .feature img{ border-radius:4px; width:100%; height:340px; object-fit:cover; }
+  .feature.reverse .feature-img{ order:2; }
+  @media(max-width:759px){ .feature.reverse .feature-img{ order:0; } }
+  .feature h2{ font-family:var(--serif); font-weight:600; font-size:1.7rem; margin-bottom:16px; }
+  .feature p{ color:var(--ink-soft); }
+  .feature .tag{ display:inline-block; font-size:.8rem; color:var(--moss-deep); font-weight:600; margin-bottom:10px; }
 
-				<!-- Three -->
-					<!--  <section id="three" class="wrapper style3 special">
-						<div class="inner">
-							<header class="major">
-								<h2>Accumsan mus tortor nunc aliquet</h2>
-								<p>Aliquam ut ex ut augue consectetur interdum. Donec amet imperdiet eleifend<br />
-								fringilla tincidunt. Nullam dui leo Aenean mi ligula, rhoncus ullamcorper.</p>
-							</header>
-							<ul class="features">
-								<li class="icon fa-paper-plane">
-									<h3>Arcu accumsan</h3>
-									<p>Augue consectetur sed interdum imperdiet et ipsum. Mauris lorem tincidunt nullam amet leo Aenean ligula consequat consequat.</p>
-								</li>
-								<li class="icon solid fa-laptop">
-									<h3>Ac Augue Eget</h3>
-									<p>Augue consectetur sed interdum imperdiet et ipsum. Mauris lorem tincidunt nullam amet leo Aenean ligula consequat consequat.</p>
-								</li>
-								<li class="icon solid fa-code">
-									<h3>Mus Scelerisque</h3>
-									<p>Augue consectetur sed interdum imperdiet et ipsum. Mauris lorem tincidunt nullam amet leo Aenean ligula consequat consequat.</p>
-								</li>
-								<li class="icon solid fa-headphones-alt">
-									<h3>Mauris Imperdiet</h3>
-									<p>Augue consectetur sed interdum imperdiet et ipsum. Mauris lorem tincidunt nullam amet leo Aenean ligula consequat consequat.</p>
-								</li>
-								<li class="icon fa-heart">
-									<h3>Aenean Primis</h3>
-									<p>Augue consectetur sed interdum imperdiet et ipsum. Mauris lorem tincidunt nullam amet leo Aenean ligula consequat consequat.</p>
-								</li>
-								<li class="icon fa-flag">
-									<h3>Tortor Ut</h3>
-									<p>Augue consectetur sed interdum imperdiet et ipsum. Mauris lorem tincidunt nullam amet leo Aenean ligula consequat consequat.</p>
-								</li>
-							</ul>
-						</div>
-					</section> -->
+  .institutions{ background:var(--stone-dim); text-align:center; }
+  .institutions h2{ font-family:var(--serif); font-weight:600; font-size:1.5rem; }
+  .inst-row{ margin-top:34px; display:flex; flex-wrap:wrap; justify-content:center; gap:14px; color:var(--ink-soft); font-size:.95rem; }
+  .inst-row span{ padding:8px 16px; border:1px solid var(--ink-soft); border-radius:999px; }
 
-				<!-- CTA -->
-					<section id="cta" class="wrapper style4">
-						<div class="inner">
-							<header>
-								<h2>Statistical Triage</h2>
-								<p>Medical Research requires the highest level of attention to detail. Access these standards to assist your needs.</p>
-							</header>
-							<ul class="actions stacked">
-								 <li><a href="https://forms.gle/hfvrDMfnWsVQrLZs5" class="button fit primary">Inquire</a></li> 
-								<li><a href="#" class="button fit">Learn More</a></li>
-							</ul>
-						</div>
-					</section>
+  .closing{ text-align:center; }
+  .closing h2{ font-family:var(--serif); font-weight:600; font-size:clamp(1.7rem,3.4vw,2.3rem); max-width:18ch; margin:0 auto; }
+  .closing p{ color:var(--ink-soft); max-width:50ch; margin:16px auto 0; }
+  .closing .btn-primary{ background:var(--canyon); color:#fff; display:inline-block; margin-top:28px; }
+  .closing .btn-primary:hover{ background:var(--canyon-deep); }
 
-				<!-- Footer -->
-					<footer id="footer">
-						<ul class="icons">
-							<!-- <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li> -->
-							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-							<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-							<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
-							<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-						</ul>
-						<ul class="copyright">
-							<li>&copy; 2014-2025 Statistical Triage </li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-						</ul>
-					</footer>
+  footer{ padding:36px 0; border-top:1px solid var(--stone-dim); }
+  .foot-row{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; font-size:.85rem; color:var(--ink-soft); }
+</style>
+</head>
+<body>
 
-			</div>
+<header class="nav">
+  <div class="nav-row">
+    <div class="brand">
+      <svg viewBox="0 0 40 40" aria-hidden="true">
+        <circle cx="20" cy="20" r="19" fill="none" stroke="var(--canyon)" stroke-width="1.4"/>
+        <path d="M12 11 h16 M12 29 h16 M12 11 L20 20 L12 29 M28 11 L20 20 L28 29" stroke="var(--ink)" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0"/>
+        <text x="20" y="27" text-anchor="middle" font-family="Source Serif 4, serif" font-weight="700" font-size="22" fill="var(--canyon)">&#931;</text>
+        <path d="M25 10 v20 M20 13 q5 3 0 6 q-5 3 0 6" stroke="var(--tri-green)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <circle cx="25" cy="10" r="2.2" fill="var(--tri-yellow)"/>
+      </svg>
+      Statistical Triage
+    </div>
+    <nav class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#institutions">Institutions</a>
+    </nav>
+    <a class="nav-cta" href="https://forms.gle/hfvrDMfnWsVQrLZs5">Start an inquiry</a>
+  </div>
+</header>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+<section class="hero">
+  <div class="hero-inner">
+    <h1><span style="color:var(--tri-red)">Prioritize.</span> <span style="color:var(--tri-yellow)">Decide.</span> <span style="color:var(--tri-green)">Succeed.</span></h1>
+    <p>Statistical support for clinical trials, graduate research, and business decisions &mdash; from data collection and study design through final analysis and manuscript preparation.</p>
+    <div class="cta-row">
+      <a class="btn-primary" href="https://forms.gle/hfvrDMfnWsVQrLZs5">Start an inquiry</a>
+      <a class="btn-ghost" href="#services">See services</a>
+    </div>
+  </div>
+</section>
 
-	</body>
+<section class="services" id="services">
+  <div class="wrap eyebrow-free">
+    <h2>Where the work happens</h2>
+    <p class="lede">Every engagement starts with the same question: what decision does this data need to support? The service that follows depends on the answer.</p>
+    <div class="service-grid">
+      <div class="service">
+        <h3>Clinical research</h3>
+        <p>Statistical analysis plans, sample size and power calculations, and analysis support from pre-clinical work through PMA submission. Certified in Clinical Research Conduct and Management (UC Berkeley Extension).</p>
+      </div>
+      <div class="service">
+        <h3>Tutoring &amp; training</h3>
+        <p>One-on-one instruction in statistical methodology and software &mdash; SAS, SQL, Excel, R, and Python &mdash; for graduate students and teams building in-house capability.</p>
+      </div>
+      <div class="service">
+        <h3>Manuscript preparation</h3>
+        <p>Research design consultation, analysis, and writing support to get a study from data to a submission-ready manuscript.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="feature">
+      <div class="feature-img">
+        <img src="images/pic03tmp.jpg" alt="A moss-covered outcrop below red canyon walls at Ribbon Falls">
+      </div>
+      <div>
+        <span class="tag">Clinical research</span>
+        <h2>Rigor from day one</h2>
+        <p>Medical research carries a higher bar for documentation and defensibility at every stage. Analysis plans, methodology, and reporting are built to hold up under review &mdash; from an IRB committee to a journal referee.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--stone-dim);">
+  <div class="wrap">
+    <div class="feature reverse">
+      <div>
+        <span class="tag">Tutoring &amp; training</span>
+        <h2>Built to grow with you</h2>
+        <p>Most graduate students don't need a statistician to do the work for them &mdash; they need someone to make the method make sense. Sessions are paced around your own study, so what you learn applies immediately, not just in theory.</p>
+      </div>
+      <div class="feature-img">
+        <img src="images/pictree02.jpg" alt="Looking up through a mossy Pacific Northwest forest toward a forested hilltop">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="institutions" id="institutions">
+  <div class="wrap">
+    <h2>Institutions I've worked with</h2>
+    <div class="inst-row">
+      <span>[Institution]</span>
+      <span>[Institution]</span>
+      <span>[Institution]</span>
+    </div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="wrap">
+    <h2>Have a dataset that needs a decision made?</h2>
+    <p>Tell me a little about the study or project and I'll follow up to talk through scope.</p>
+    <a class="btn-primary" href="https://forms.gle/hfvrDMfnWsVQrLZs5">Start an inquiry</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-row">
+    <span>&copy; 2014&ndash;2026 Statistical Triage</span>
+    <span>Design refresh by C & HTML5</span>
+  </div>
+</footer>
+
+</body>
 </html>
